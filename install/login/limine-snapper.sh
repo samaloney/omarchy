@@ -1,3 +1,4 @@
+exit 0
 if command -v limine &>/dev/null; then
   sudo pacman -S --noconfirm --needed limine-snapper-sync limine-mkinitcpio-hook
 
@@ -24,7 +25,6 @@ EOF
     limine_config="/boot/limine.conf"
   else
     echo "Error: Limine config not found" >&2
-    exit 0
   fi
 
   CMDLINE=$(grep "^[[:space:]]*cmdline:" "$limine_config" | head -1 | sed 's/^[[:space:]]*cmdline:[[:space:]]*//')
